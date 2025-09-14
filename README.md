@@ -1,30 +1,30 @@
-// Ambiente de Testes WSL - Windows 11
-// Versão 0.1 - Documentação inicial
+## Ambiente de Testes WSL - Windows 11
+## Versão 0.1 - Documentação inicial
 
 ** Os passos abaixo devem executados com o Powershell com permissões de usuário Administrator **
 
-// Habilitar Hyper-V
+## Habilitar Hyper-V
 dism.exe /online /enable-feature /featurename:Microsoft-Hyper-V-All /all /norestart
 
-// Habilitar WSL
+## Habilitar WSL
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 
-// Habilitar Plataforma de Máquina Virtual (necessária para WSL 2)
+## Habilitar Plataforma de Máquina Virtual (necessária para WSL 2)
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 
-// Atualiza o WSL para a versão mais recente (depois de reiniciar o PC)
+## Atualiza o WSL para a versão mais recente (depois de reiniciar o PC)
 wsl --update
 
-// Definir WSL 2 como padrão (após reiniciar)
+## Definir WSL 2 como padrão (após reiniciar)
 wsl --set-default-version 2
 
-// Listar distribuições disponíveis
+## Listar distribuições disponíveis
 wsl --list --online
 
-// Instalar Ubuntu 24.04
+## Instalar Ubuntu 24.04
 wsl --install -d Ubuntu-24.04
 
-// Alterar as configurações do arquivos "C:\Users\avitola\.wslconfig" para que tenhas as configurações abaixo:
+## Alterar as configurações do arquivos "C:\Users\avitola\.wslconfig" para que tenhas as configurações abaixo:
 
 [wsl2]
 
@@ -32,11 +32,11 @@ autoProxy=false
 dnsTunneling=false
 networkingMode=Mirrored
 
-// Reiniciar e acessar a instância do WSL
+## Reiniciar e acessar a instância do WSL
 wsl --shutdown Ubuntu
 wsl ~ -d Ubuntu
 
-// Instalar o Certiticado SSL do Zscaler
+## Instalar o Certiticado SSL do Zscaler
 
 ~# vim /etc/ssl/certs/ZscalerRootCertificate-2048-SHA256.crt
 

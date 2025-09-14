@@ -4,40 +4,56 @@
 ** Os passos abaixo devem executados com o Powershell com permissões de usuário Administrator **
 
 ## Habilitar Hyper-V
+```
 dism.exe /online /enable-feature /featurename:Microsoft-Hyper-V-All /all /norestart
+```
 
 ## Habilitar WSL
+```
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
 
 ## Habilitar Plataforma de Máquina Virtual (necessária para WSL 2)
+```
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
 
 ## Atualiza o WSL para a versão mais recente (depois de reiniciar o PC)
+```
 wsl --update
+```
 
 ## Definir WSL 2 como padrão (após reiniciar)
+```
 wsl --set-default-version 2
+```
 
 ## Listar distribuições disponíveis
+```
 wsl --list --online
+```
 
 ## Instalar Ubuntu 24.04
+```
 wsl --install -d Ubuntu-24.04
+```
 
 ## Alterar as configurações do arquivos "C:\Users\avitola\.wslconfig" para que tenhas as configurações abaixo:
 
 [wsl2]
-
 autoProxy=false
 dnsTunneling=false
 networkingMode=Mirrored
-
+ 
+  
 ## Reiniciar e acessar a instância do WSL
+```
 wsl --shutdown Ubuntu
 wsl ~ -d Ubuntu
+```
 
 ## Instalar o Certiticado SSL do Zscaler
-
+```
 ~# vim /etc/ssl/certs/ZscalerRootCertificate-2048-SHA256.crt
 
 -----BEGIN CERTIFICATE-----
@@ -68,5 +84,7 @@ kd7lLvJsBu3AO3jGWVLyPkS3i6Gf+rwAp1OsRrv3WnbkYcFf9xjuaf4z0hRCrLN2
 xFNjavxrHmsH8jPHVvgc1VD0Opja0l/BRVauTrUaoW6tE+wFG5rEcPGS80jjHK4S
 pB5iDj2mUZH1T8lzYtuZy0ZPirxmtsk3135+CKNa2OCAhhFjE0xd
 -----END CERTIFICATE-----
-
+```
+```
 ~# update-ca-certificates --fresh
+```

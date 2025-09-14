@@ -1,6 +1,6 @@
 ## Ambiente de Testes WSL - Windows 11
 ## Versão 0.1 - Documentação inicial
-
+## 13/09/2025
 ** Os passos abaixo devem executados com o Powershell com permissões de usuário Administrator **
 
 ## Habilitar Hyper-V
